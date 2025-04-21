@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Recipe App
 
-## Getting Started
+## Project Overview
+This is a simple recipe app built with **Next.js**. The app allows users to browse a list of recipes and view detailed instructions. It demonstrates basic features like routing, state management, and component creation while maintaining responsiveness and user-friendly design.
 
-First, run the development server:
+## Folder Structure
+/components
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Navbar.js # Navigation bar component
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Footer.js # Footer component
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+RecipeCard.js # Recipe card component
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+/pages
 
-## Learn More
+index.js # Homepage displaying an introduction to the app
 
-To learn more about Next.js, take a look at the following resources:
+recipes.js # Page listing available recipes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+about.js # About page with details about the app
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+/styles
 
-## Deploy on Vercel
+globals.css # Global CSS styles
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Key Components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Navbar.js**
+   - A navigation bar displayed on all pages, providing links to the Home, Recipes, and About pages.
+   - The navbar ensures smooth navigation between sections of the app.
+
+2. **Footer.js**
+   - A footer displayed on all pages, offering basic information or copyright details.
+   - This component is simple and keeps the layout clean.
+
+3. **RecipeCard.js**
+   - Displays individual recipe details in a card format.
+   - Each card includes a title, short description, and a button to show/hide the recipe instructions.
+   - The card uses a button to toggle visibility of the recipe steps, utilizing state management.
+
+## Pages and Routing
+
+1. **Home (`/`)**: 
+   - The main landing page of the app with a welcoming message.
+   
+2. **Recipes (`/recipes`)**:
+   - Displays a list of recipes fetched from a static array.
+   - Each recipe is linked to a detailed view using the `RecipeCard` component.
+
+3. **About (`/about`)**:
+   - Provides more information about the app, its creators, and its purpose.
+
+## State Management
+
+The app uses **React's `useState` hook** to manage local state within components:
+
+1. **RecipeCard Component**:
+   - State is used to toggle the visibility of the recipe instructions when the "Show Recipe" button is clicked.
+   - `useState` is used to track whether the recipe instructions should be visible.
+
+2. **Data Flow**:
+   - The `Recipes` page is responsible for managing the list of recipes. It passes data (recipe titles and descriptions) as props to the `RecipeCard` component for rendering.
+   - State is lifted when necessary to share information across multiple components (such as passing recipe data from the parent `Recipes` page to individual `RecipeCard` components).
+
+## How to Run
+
+1. Clone the repository:
+   ```bash
+   git clone <your-repository-url>
